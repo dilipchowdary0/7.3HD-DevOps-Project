@@ -5,34 +5,34 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the Flask application...'
-                sh 'pip install -r requirements.txt'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
-                sh 'pytest'
+                bat 'python -m pytest'
             }
         }
 
         stage('Code Quality') {
             steps {
                 echo 'Checking code quality...'
-                sh 'python -m compileall .'
+                bat 'python -m compileall .'
             }
         }
 
         stage('Security') {
             steps {
                 echo 'Running security check...'
-                sh 'pip list'
+                bat 'python -m pip list'
             }
         }
 
         stage('Deployment') {
             steps {
-                echo 'Deploying application...'
+                echo 'Deploying application to test environment...'
             }
         }
 
@@ -44,7 +44,7 @@ pipeline {
 
         stage('Monitoring') {
             steps {
-                echo 'Monitoring application logs...'
+                echo 'Monitoring application logs and pipeline status...'
             }
         }
     }
