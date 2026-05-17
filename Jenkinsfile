@@ -5,28 +5,28 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the Flask application...'
-                bat 'python -m pip install -r requirements.txt'
+                bat 'py -m pip install -r requirements.txt'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
-                bat 'python -m pytest'
+                bat 'py -m pytest'
             }
         }
 
         stage('Code Quality') {
             steps {
                 echo 'Checking code quality...'
-                bat 'python -m compileall .'
+                bat 'py -m compileall .'
             }
         }
 
         stage('Security') {
             steps {
                 echo 'Running security check...'
-                bat 'python -m pip list'
+                bat 'py -m pip list'
             }
         }
 
